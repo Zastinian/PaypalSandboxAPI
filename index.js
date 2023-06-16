@@ -21,8 +21,10 @@ means that any requests that match the routes defined in `paymentRoutes` will be
 middleware. */
 app.use(paymentRoutes);
 
-/* `app.listen(PORT)` starts the Express application and listens for incoming requests on the specified
-`PORT`. */
-app.listen(PORT);
-console.log(`Server on port http://localhost:${PORT}`);
-console.log(`environment: ${process.env.NODE_ENV}`);
+/* `app.listen(PORT, () => {...})` starts the Express application and listens for incoming requests on
+the specified `PORT`. Once the server is started, it logs the `PORT` number and the current
+`NODE_ENV` environment variable to the console. */
+app.listen(PORT, () => {
+  console.log(`Port: ${PORT}`);
+  console.log(`${process.env.NODE_ENV}`);
+});
